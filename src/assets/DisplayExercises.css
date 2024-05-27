@@ -1,0 +1,42 @@
+
+.exercise-container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.exercise-name {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.exercise-item {
+    background-color: #4d4d4d;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.exercise-gif {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 0.9em;
+    color: #555;
+}
