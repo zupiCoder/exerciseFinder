@@ -38,6 +38,12 @@ This project is built using Vue.js. Follow the instructions below to set up the 
 
 5. **Run the preview server**:
 
+   First create a build
+
+   ```bash
+   npm run build
+   ```
+
    ```bash
    npm run preview
    ```
@@ -46,5 +52,4 @@ This project is built using Vue.js. Follow the instructions below to set up the 
 
 6. **How to use**:
 
-   When the server is running, you can access the webapp. Select the muscle group from the select component and navigate with buttons `previous` and `next` through exercises
-   for the selected muscle group.
+   When the server is running, you can access the webapp. Select the muscle group from the select component and navigate with buttons `previous` and `next` through exercises for the selected muscle group.
