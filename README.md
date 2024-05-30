@@ -34,7 +34,7 @@ This project is built using Vue.js. Follow the instructions below to set up the 
    npm run dev
    ```
 
-   The development server should now be running on `http://localhost:8080`.
+   The development server should now be running on `http://localhost:5173/`.
 
 5. **Run the preview server**:
 
@@ -46,6 +46,5 @@ This project is built using Vue.js. Follow the instructions below to set up the 
 
 6. **How to use**:
 
-   When the server is running, you can access the webapp.
-   Select the muscle group from the select component and navigate with buttons previous and next through exercises
+   When the server is running, you can access the webapp. Select the muscle group from the select component and navigate with buttons `previous` and `next` through exercises
    for the selected muscle group.
