@@ -1,35 +1,51 @@
-# countriesApp
+# My Vue.js Project
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is built using Vue.js. Follow the instructions below to set up the project locally.
 
-## Recommended IDE Setup
+## Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+1. **Clone the repository**:
 
-## Customize configuration
+   ```bash
+   git clone https://github.com/zupiCoder/exerciseFinder.git
+   ```
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+   or
 
-## Project Setup
+   ```bash
+   git clone git@github.com:zupiCoder/exerciseFinder.git
+   ```
 
-```sh
-npm install
-```
+2. **Navigate to the project directory**:
 
-### Compile and Hot-Reload for Development
+   ```bash
+   cd exerciseFinder
+   ```
 
-```sh
-npm run dev
-```
+3. **Install the dependencies**:
 
-### Compile and Minify for Production
+   ```bash
+   npm install
+   ```
 
-```sh
-npm run build
-```
+4. **Run the development server**:
 
-### Lint with [ESLint](https://eslint.org/)
+   ```bash
+   npm run dev
+   ```
 
-```sh
-npm run lint
-```
+   The development server should now be running on `http://localhost:8080`.
+
+5. **Run the preview server**:
+
+   ```bash
+   npm run preview
+   ```
+
+   The preview server should now be running on `http://localhost:4173`.
+
+6. **How to use**:
+
+   When the server is running, you can access the webapp.
+   Select the muscle group from the select component and navigate with buttons previous and next through exercises
+   for the selected muscle group.

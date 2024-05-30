@@ -1,42 +1,96 @@
-
-.exercise-container {
-    padding: 20px;
-}
-
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.exercise-name {
-    width: 100%;
-    text-align: center;
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.exercises-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.exercise-item {
-    background-color: #4d4d4d;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.exercise-gif {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 p {
-    font-size: 0.9em;
-    color: #555;
+  font-size: 0.9em;
+  color: #ffffff;
+}
+
+ol {
+  list-style: decimal inside;
+  text-align: left;
+}
+
+li {
+  color: white;
+}
+
+.exercise-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.exercises-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.exercise-name {
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.exercise-item {
+  background-color: #aaa8a8;
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.exercise-gif {
+  width: 320px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.sec-muscles {
+  color: #ffffff;
+  text-align: left;
+}
+
+.target {
+  color:rgb(255, 255, 255);
+}
+
+.equipment {
+  text-align: left;
+  color: rgb(255, 255, 255);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+}
+
+.button:disabled {
+  background-color: #777;
+  cursor: not-allowed;
 }

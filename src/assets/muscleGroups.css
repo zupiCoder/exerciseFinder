@@ -7,22 +7,17 @@ button {
   font-family: 'Poppins', sans-serif;
   padding: 10px 24px;
   margin: 5px;
-}
-
-.muscle-groups {
-  display: flex;
-  height: 200px;
-  width: 200px;
+  font-weight: bold;
 }
 
 th {
-    text-align: center;
-    padding: 10px;
-    vertical-align: top;
+  text-align: center;
+  padding: 10px;
+  vertical-align: top;
 }
 
 th div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

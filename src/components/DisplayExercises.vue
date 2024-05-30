@@ -1,57 +1,89 @@
 <template>
-    <button @click="previousPage" :disabled="this.currentPage === 0">Previous</button>
     <div class="exercise-container">
         <div class="exercises-grid">
             <div v-for="exercise in displayedExercises" :key="exercise.id" class="exercise-item">
-                <th class="exercise-name">{{ exercise.name }}</th>
-                <td><img :src="exercise.gifUrl" :alt="exercise.name" class="exercise-gif" /></td>
-                <td>
-                    <p>{{ exercise.description }}</p>
-                </td>
+                <tr>
+                    <th class="exercise-name">{{ exercise.name.toUpperCase() }}</th>
+                </tr>
+                <tr>
+                    <td><img :src="exercise.gifUrl" :alt="exercise.name" class="exercise-gif" /></td>
+                </tr>
+                <tr>
+                    <td class="sec-muscles">
+                        Secondary muscles:
+                        <span v-for="(muscle, index) in exercise.secondaryMuscles" :key="index">
+                        {{ muscle }}<span v-if="index < exercise.secondaryMuscles.length - 1">, </span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="target">
+                        Target: {{ exercise.target }}
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="equipment">
+                        Equipment: {{ exercise.equipment }}
+                    </td>
+                </tr>
             </div>
         </div>
     </div>
-    <button @click="nextPage" :disabled="noExercises">Next</button>
-</template>
 
+    <div class="nav-container">
+        <button @click="previousPage" :disabled="currentPage === 0" v-show="this.storedExercises.length != 0"
+            class="button">Previous</button>
+        <button @click="nextPage" :disabled="noExercises" v-show="this.storedExercises.length != 0"
+            class="button">Next</button>
+    </div>
+</template>
 <script>
 
 export default {
     name: 'DisplayExercises',
     props: {
+        muscleGroup: { type: String, required: true },
         storedExercises: { type: Array, required: true },
+        offset: { type: Number, required: true }
     },
-    created() {
-        console.log(this.displayedExercises);
-        console.log(this.displayedExercises.length);
-    },
+    emits: ['fetchExercises'],
     data() {
         return {
             currentPage: 0,
-            pageSize: 5,
+            lastPage: 0,
+            firstPage: true,
+            pageSize: 3,
+            currentGroup: "",
             noExercises: false,
-            displayedExercises: [],
+            displayedExercises: []
         }
     },
     methods: {
         fetchNextPage() {
+
+            if (this.currentPage !== 0) this.firstPage = false;
+
             const start = this.currentPage * this.pageSize;
             const end = start + this.pageSize;
             this.displayedExercises = this.storedExercises.slice(start, end);
 
-            console.log("no exercises pre: " + this.noExercises);
-            if ((end >= this.storedExercises.length) && (start != 0)) {
+            if ((end >= this.storedExercises.length) && !this.firstPage) {
                 this.noExercises = true;
             } else {
                 this.noExercises = false;
             }
 
-            console.log("no exercises post: " + this.noExercises);
-
             console.log("current page: " + this.currentPage);
         },
         nextPage() {
-            if (!this.noExercises) {
+            if (!this.noExercises || (this.currentPage === this.lastPage)) {
+                if (this.currentPage === (this.lastPage - 2)) {
+                    const newOffset = this.offset + 24;
+                    this.$emit('fetchExercises', this.muscleGroup, newOffset);
+                }
                 this.currentPage++;
                 this.fetchNextPage();
             }
@@ -62,14 +94,29 @@ export default {
                 this.fetchNextPage();
             }
         }
+
+    },
+    watch: {
+        storedExercises(array) {
+
+            if (array.length > 0) {
+                this.noExercises = false;
+                this.lastPage = Math.ceil(array.length / this.pageSize);
+                if (this.currentGroup != this.muscleGroup) {
+                    this.currentPage = 0;
+                    this.currentGroup = this.muscleGroup;
+                }
+                this.fetchNextPage();
+            }
+            else if (array.length === 0) {
+                this.currentPage = 0;
+                this.displayedExercises = [];
+            }
+        }
     },
     mounted() {
         this.currentPage = 0;
         this.noExercises = false;
-        this.fetchNextPage();
-    },
-    created() {
-        console.log("no exercises: " + this.noExercises);
     }
 }
 </script>
