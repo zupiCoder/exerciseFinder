@@ -1,5 +1,5 @@
 {
-  "name": "countriesapp",
+  "name": "exercisefinder",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -13,7 +13,8 @@
   "dependencies": {
     "axios": "^1.7.2",
     "vue": "^3.4.21",
-    "vue3-select-component": "^0.2.4"
+    "vue3-select-component": "^0.2.4",
+    "vite": "^5.2.8"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
