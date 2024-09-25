@@ -39,8 +39,6 @@ export default {
 
         const response = await axios.get(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${group}`, {
           headers: {
-            'X-RapidAPI-Key': '094023f03cmshf7b6d219e019cedp11fe7djsn637935f18fe3',
-            'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
           },
           params: {
             limit: '24',
