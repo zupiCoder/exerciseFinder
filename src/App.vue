@@ -17,6 +17,8 @@ import './assets/app.css';
 import './assets/muscleGroups.css';
 import './assets/DisplayExercises.css';
 
+import { API_KEY, API_HOST } from './config';
+
 export default {
   name: 'app',
   components: {
@@ -39,6 +41,8 @@ export default {
 
         const response = await axios.get(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${group}`, {
           headers: {
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': API_HOST
           },
           params: {
             limit: '24',
